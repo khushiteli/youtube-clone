@@ -6,9 +6,9 @@ import { Search } from "./";
 const Navbar = () => {
   return (
     <>
-      <div className='flex flex-row justify-between p-4'>
+      <div className='navbar'>
         <Link to="/" >
-          <img src={logo} alt="logo" className='h-[12vh] scale-10 w-[20vw] m-[-30px]' />
+          <img src={logo} alt="logo" className='logo-img' />
         </Link>
         <Search/>
       </div>

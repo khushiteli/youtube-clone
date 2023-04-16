@@ -1,4 +1,4 @@
-import "./index.css";
+import './sass/main.scss'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {Feed, ChannelDetail, Navbar, SearchFeed, VideoDetails} from './components';
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <>
      <BrowserRouter>
-      <div className="bg-[#000] text-[#fff]">
+      <div className='wrapper'>
         <Navbar/>
         <Routes>
           <Route path='/' exact element={<Feed/>} />

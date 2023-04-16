@@ -12,22 +12,24 @@ const Feed = () => {
     },[selectedCategories])
   return (
     <>
-      <div className="w-[20vw] bg-[#000] h-full flex flex-col gap-3 md:flex-row">
+      <div className="feed-section">
         <SideBar
           selectedCategories={selectedCategories}
           setSelectedCategories={setSelectedCategories}
         />
-        <div className='w-[80vw] flex items-end'>
-          <h2 className="text-[40px]">
-            <span className="text-red-500 font-bold">{selectedCategories}</span>{" "}
+        <div className="feed-right-section">
+          <h2 className="video-heading">
+            <span className="categorie-heading">{selectedCategories}</span>{" "}
             Video
           </h2>
           {/* <Videos videos = {videos}/> */}
-          <div className="flex flex-wrap justify-center items-center content-center">
+          <div className="feed-videos-section">
             {videos.map((item, key) => (
-              <div>
+              <div className='feed-video'>
                 {item.id.videoId && <VideoCard video={item} key={key} />}
-                {item.id.channelId && <ChannelCard channelDetails={item} key={key} />}
+                {item.id.channelId && (
+                  <ChannelCard channelDetails={item} key={key} />
+                )}
               </div>
             ))}
           </div>

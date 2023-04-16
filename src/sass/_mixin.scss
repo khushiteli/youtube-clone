@@ -1,0 +1,10 @@
+@mixin videos-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+@mixin video-card {
+  scale: 1.08;
+  transition: all 1s;
+}

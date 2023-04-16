@@ -1,0 +1,304 @@
+@import "variable";
+@import "mixin";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  background-color: $bg-color;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper {
+  color: $fore-color;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
+  flex-direction: row;
+}
+
+.logo-img {
+  height: 8vh;
+  width: 20vh;
+  scale: 1.5;
+  z-index: -10;
+}
+
+.feed-section {
+  z-index: 10;
+  margin-top: 0.1em;
+
+  .categories-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .feed-right-section {
+    height: 87vh;
+    overflow-y: auto;
+
+    .video-heading {
+      font-style: italic;
+
+      .categorie-heading {
+        color: $bright-red;
+        font-weight: bold;
+      }
+    }
+
+    .feed-videos-section {
+      @include videos-section;
+    }
+  }
+}
+
+.feed-video:hover {
+  @include video-card;
+}
+
+.video-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  .channel-title {
+    color: $faint-grey;
+    z-index: 5;
+  }
+}
+
+.category-btn {
+  padding: 0.8em 1.5em;
+  display: flex;
+  gap: 0.7em;
+  border-radius: 1em;
+  font-weight: bold;
+}
+
+.channel-section {
+  height: 87vh;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+
+  .channel-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+
+    .channel-title {
+      color: white;
+      font-size: large;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 2em;
+    }
+    .channel-description {
+      width: 80vw;
+    }
+
+    .channel-subscribers {
+      font-style: italic;
+      font-size: 1em;
+      color: antiquewhite;
+      text-shadow: 1px 1px 1px lightblue, 2px 2px 3px lightcyan;
+    }
+  }
+
+  .channel-videos {
+    @include videos-section;
+    gap:1em;
+  }
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    for desktop
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen and (min-width: 769px) {
+  .feed-section {
+    display: grid;
+    grid-template-columns: 15% 85%;
+  }
+  .category-btn {
+    padding-left: 2.5em;
+  }
+  .video-heading {
+    font-size: 2.5em;
+    padding-left: 1em;
+  }
+  .feed-video {
+    max-width: 360px;
+    .video-thumbnail {
+      border-radius: 0.5rem;
+      object-fit: contain;
+      z-index: -5;
+      height: 270px;
+      width: 100%;
+    }
+  }
+
+  .channel-card {
+    transform: translateX(148%);
+
+    .channel-logo {
+      height: 15em;
+    }
+  }
+
+  .main-videos{
+    height: 87vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 78% 20%;
+    grid-template-areas: main suggest;
+
+    .full-video{
+      grid-template-areas: main;
+    }
+
+    .videos-in-channel{
+      grid-template-areas: suggest;
+    }
+
+    .playing-video{
+    width: 100%;
+  }
+}
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    for phone
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media screen and (max-width: 480px) {
+  // it will works for phone devices
+  .input-lable {
+    height: 1.6rem;
+  }
+
+  .logo-img {
+    scale: 1.2;
+  }
+
+  .feed-section {
+    display: grid;
+
+    .categories-bar {
+      display: flex;
+      flex-direction: row;
+      overflow-y: auto;
+    }
+
+    .feed-videos-display {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .category-btn {
+    align-items: center;
+    padding: 0.4em 1.5em;
+  }
+
+  .video-heading {
+    font-size: 1.5em;
+    padding-left: 0;
+  }
+
+  .video-text {
+    padding-left: 1em;
+  }
+
+  .channel-logo {
+    height: 10rem;
+  }
+
+  .playing-video{
+    width: 100vw;
+  }
+
+  .full-video{
+    width: 100%;
+  }
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    for tablet
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media screen and ((max-width: 768px) and (min-width: 480px)) {
+  // it will works for table devices   \
+  .input-lable {
+    height: 2rem;
+    margin-right: 10rem;
+  }
+
+  .logo-img {
+    scale: 1;
+  }
+
+  .feed-section {
+    display: grid;
+    grid-template-columns: 20% 80%;
+  }
+
+  .video-heading {
+    font-size: 2em;
+    padding-left: 1em;
+  }
+
+  .feed-video {
+    width: 50%;
+    .video-thumbnail {
+      object-fit: contain;
+      z-index: -5;
+      height: 270px;
+      width: 100%;
+    }
+
+    .video-text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+  }
+
+  .channel-card {
+    transform: translateX(50%);
+  }
+
+  .videos-in-channel{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .playing-video{
+    width: 100vw;
+  }
+
+  .full-video{
+    width: 100%;
+  }
+}
+

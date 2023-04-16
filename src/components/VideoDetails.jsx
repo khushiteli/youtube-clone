@@ -22,23 +22,27 @@ const VideoDetails = () => {
   },[id.id])
 
   return (
-    <div>
-      <div className="border-2">
-        <ReactPlayer
-          url={`https://www.youtube.com/watch?v=${id.id}`}
-          controls={true}
-          // playing={true}
-          width="90vw"
-          height="90vh"
-        />
+    <div className="video-in-detail">
+      <div className="main-videos">
+        <span className='full-video'>
+          <ReactPlayer
+            url={`https://www.youtube.com/watch?v=${id.id}`}
+            controls={true}
+            height="60vh"
+            width="100%"
+            style={{padding:15}}
+            className="playing-video"
+          />
 
-        <p>{video?.snippet?.title}</p>
-      </div>
-
-      <div className="flex flex-wrap justify-center items-center content-center">
-        {suggestedVideos.map((item, key) => (
-          <div>{item.id.videoId && <VideoCard video={item} key={key} />}</div>
-        ))}
+          <p>{video?.snippet?.title}</p>
+        </span>
+        <span className="videos-in-channel">
+          {suggestedVideos.map((item, key) => (
+            <div className="feed-video">
+              {item.id.videoId && <VideoCard video={item} key={key} />}
+            </div>
+          ))}
+        </span>
       </div>
     </div>
   );

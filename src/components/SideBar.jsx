@@ -5,35 +5,31 @@ import { categories } from "../utils/constants";
 
 const SideBar = ({ selectedCategories, setSelectedCategories }) => {
   return (
-    <div className="flex md:flex-col overflow-y-auto sm:flex-row gap-3 z-index-10 w-[18%]">
+    <div className="categories-bar">
       {categories.map((c) => {
         return (
-          <div
-            className="flex gap-3 category-btn pr-20 py-2"
-            style={{ background: c.name === selectedCategories && "#FC1503" }}
-            key={c.name}
-            onClick={() => {
-              setSelectedCategories(c.name);
-            }}
-          >
-            <button
-              className="category-btn flex gap-3"
-              style={{ background: c.name === selectedCategories && "#FC1503" }}
+          <>
+            <div
+              className="category-btn"
+              style={{
+                background: c.name === selectedCategories && "#ffffff4d",
+              }}
               key={c.name}
               onClick={() => {
                 setSelectedCategories(c.name);
               }}
-            ></button>
-
-            <span
-              style={{ color: c.name === selectedCategories ? "white" : "red" }}
             >
-              {c.icon}
-            </span>
-            <span style={{ opacity: c.name === selectedCategories ? 1 : 0.8 }}>
-              {c.name}
-            </span>
-          </div>
+              <span className="category-btn-icon">{c.icon}</span>
+              <span
+                className="category-btn-name"
+                style={{
+                  opacity: c.name === selectedCategories ? '1' : '0.8'
+                }}
+              >
+                {c.name}
+              </span>
+            </div>
+          </>
         );
       })}
     </div>
