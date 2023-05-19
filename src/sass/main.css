@@ -1,0 +1,22 @@
+card {
+  @mi;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  color: #fff;
+  background-color: #000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
+  flex-direction: row;
+}/*# sourceMappingURL=main.css.map */

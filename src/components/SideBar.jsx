@@ -6,9 +6,9 @@ import { categories } from "../utils/constants";
 const SideBar = ({ selectedCategories, setSelectedCategories }) => {
   return (
     <div className="categories-bar">
-      {categories.map((c) => {
+      {categories.map((c,index) => {
         return (
-          <>
+          <div key={index}>
             <div
               className="category-btn"
               style={{
@@ -29,7 +29,7 @@ const SideBar = ({ selectedCategories, setSelectedCategories }) => {
                 {c.name}
               </span>
             </div>
-          </>
+          </div>
         );
       })}
     </div>

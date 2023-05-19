@@ -27,6 +27,10 @@
   flex-direction: row;
 }
 
+input{
+  &:focus {outline: none;}
+}
+
 .logo-img {
   height: 8vh;
   width: 20vh;
@@ -41,7 +45,7 @@
   .categories-bar {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    // justify-content: start;
   }
 
   .feed-right-section {
@@ -121,11 +125,9 @@
 
   .channel-videos {
     @include videos-section;
-    gap:1em;
+    gap: 1em;
   }
 }
-
-
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////
                     for desktop
@@ -162,28 +164,26 @@
     }
   }
 
-  .main-videos{
+  .main-videos {
     height: 87vh;
     overflow-y: auto;
     display: grid;
     grid-template-columns: 78% 20%;
     grid-template-areas: main suggest;
 
-    .full-video{
+    .full-video {
       grid-template-areas: main;
     }
 
-    .videos-in-channel{
+    .videos-in-channel {
       grid-template-areas: suggest;
     }
 
-    .playing-video{
-    width: 100%;
+    .playing-video {
+      width: 100%;
+    }
   }
 }
-}
-
-
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////
                     for phone
@@ -232,11 +232,11 @@
     height: 10rem;
   }
 
-  .playing-video{
+  .playing-video {
     width: 100vw;
   }
 
-  .full-video{
+  .full-video {
     width: 100%;
   }
 }
@@ -287,18 +287,17 @@
     transform: translateX(50%);
   }
 
-  .videos-in-channel{
+  .videos-in-channel {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
   }
 
-  .playing-video{
+  .playing-video {
     width: 100vw;
   }
 
-  .full-video{
+  .full-video {
     width: 100%;
   }
 }
-

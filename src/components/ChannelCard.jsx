@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { demoProfilePicture } from "../utils/constants";
 
 const ChannelCard = ({ channelDetails }) => {
-  console.log(channelDetails)
   return (
     <>
       <Link to={`channel/${channelDetails?.id?.channelId}`}>

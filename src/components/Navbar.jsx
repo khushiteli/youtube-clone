@@ -6,7 +6,7 @@ import { Search } from "./";
 const Navbar = () => {
   return (
     <>
-      <div className='navbar'>
+      <div className='navbar -z-10'>
         <Link to="/" >
           <img src={logo} alt="logo" className='logo-img' />
         </Link>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ChannelCard, VideoCard } from "./";
+import { VideoCard } from "./";
 import { FetchChannels, FetchChannelVideos } from "../utils/FetchFromAPI";
 import { useParams } from "react-router-dom";
 import { demoProfilePicture } from "../utils/constants";

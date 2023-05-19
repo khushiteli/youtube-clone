@@ -13,10 +13,12 @@ const Feed = () => {
   return (
     <>
       <div className="feed-section">
-        <SideBar
-          selectedCategories={selectedCategories}
-          setSelectedCategories={setSelectedCategories}
-        />
+        <div className='mb-5 overflow-y-auto h-[87vh] cursor-pointer'>
+          <SideBar
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+          />
+        </div>
         <div className="feed-right-section">
           <h2 className="video-heading">
             <span className="categorie-heading">{selectedCategories}</span>{" "}
@@ -25,7 +27,7 @@ const Feed = () => {
           {/* <Videos videos = {videos}/> */}
           <div className="feed-videos-section">
             {videos.map((item, key) => (
-              <div className='feed-video'>
+              <div className="feed-video" key={key}>
                 {item.id.videoId && <VideoCard video={item} key={key} />}
                 {item.id.channelId && (
                   <ChannelCard channelDetails={item} key={key} />
